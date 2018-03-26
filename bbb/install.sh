@@ -5,7 +5,7 @@ dhcp_dev=( ${lan_dev} )
 user=( debian )
 
 
-Create swapfile
+# Create swapfile
 fallocate -l 512M /var/swapfile
 chmod 600 /var/swapfile
 mkswap /var/swapfile
