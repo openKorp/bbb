@@ -34,7 +34,10 @@ gcc-8 \
 g++-8 \
 python-pip \
 npm \
-docker-compose
+docker-compose \
+libusb-dev \
+nmap \
+libncurses5-dev
 "
 
 # apt-get update
