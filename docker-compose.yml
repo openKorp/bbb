@@ -5,15 +5,16 @@ services:
         image: openkorp/opendlv-device-kiwi-prugw-multi:latest
         network_mode: "host"
         privileged: true
+        restart: always
         volumes:
             - /sys/:/sys/
         command: "/usr/bin/opendlv-device-kiwi-prugw --cid=${CID} \
                 --names=${NAMES} --types=${TYPES} --channels=${CHANNELS} \
                 --offsets=${OFFSETS} --maxvals=${MAXVALS} --verbose=1"
 
-    device-ps3controller:
-        image: openkorp/opendlv-device-ps3controller-multi:latest
-        devices:
-          - ${INPUT}:${INPUT}
-        network_mode: "host"
-        command: "/usr/bin/opendlv-device-ps3controller --cid=${CID} --freq=10 --input=${INPUT} --verbose=0" 
+    # device-ps3controller:
+    #     image: openkorp/opendlv-device-ps3controller-multi:latest
+    #     devices:
+    #       - ${INPUT}:${INPUT}
+    #     network_mode: "host"
+    #     command: "/usr/bin/opendlv-device-ps3controller --cid=${CID} --freq=10 --input=${INPUT} --verbose=0" 
