@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# git clone https://github.com/bjornborg/bbb
+
+
 lan_dev=wlan0
 dhcp_dev=( ${lan_dev} )
 user=( debian )
