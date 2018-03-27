@@ -17,16 +17,13 @@ echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc
 echo "Package: * Pin: release a=testing Pin-Priority: 100" > /etc/apt/preferences.d/unstable
 
 software=" \
-base-devel \
 bash-completion \
 ccache \
 cmake \
-gnu-netcat \
+netcat \
 git \
 i2c-tools \
-linux-headers \
 nano \
-openssh \
 screen \
 vim \
 wget \

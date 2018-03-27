@@ -13,7 +13,6 @@ cmake \
 netcat \
 git \
 i2c-tools \
-linux-headers-4.9.0-4-all \
 nano \
 screen \
 vim \
