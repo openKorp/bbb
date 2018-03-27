@@ -8,6 +8,9 @@ dhcp_dev=( ${lan_dev} )
 user=( debian )
 
 
+apt-get update
+apt-get dist-upgrade -y
+apt-get upgrade
 
 # Add unstable branch
 echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list
@@ -36,10 +39,10 @@ libusb-dev \
 nmap \
 libncurses5-dev
 "
-
 apt-get update
 apt-get dist-upgrade -y
 apt-get upgrade
+
 apt-get install -y ${software}
 
 # Create swapfile
