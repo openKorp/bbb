@@ -62,4 +62,11 @@ iptables-save > /etc/iptables/rules.v4
 # mutlicast
 
 # sed -i -e '/exit 0/isleep 30\nip route add 225.0.0.0\/24 dev eth2\nmodprobe bcm2835-v4l2\n' /etc/rc.local
-sed '$isleep 30\nip route add 225.0.0.0\/24 dev eth2\nmodprobe bcm2835-v4l2' /etc/rc.local
+sed -i '$isleep 30\nip route add 225.0.0.0\/24 dev eth2\nmodprobe bcm2835-v4l2' /etc/rc.local
+
+# if the interface are swapped
+# sed -i -e 's/eth1/eth2/g' /etc/dhcpcd.conf
+# sed -i -e 's/eth1/eth2/g' /etc/network/interfaces
+# sed -i -e 's/eth1/eth2/g' /etc/default/isc-dhcp-server
+# sed -i -e 's/eth1/eth2/g' /etc/iptables/rules.v4
+# sed -i -e 's/eth2/eth1/g' /etc/rc.local
