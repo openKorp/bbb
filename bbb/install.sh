@@ -8,12 +8,6 @@ dhcp_dev=( ${lan_dev} )
 user=( debian )
 
 
-# Create swapfile
-fallocate -l 512M /var/swapfile
-chmod 600 /var/swapfile
-mkswap /var/swapfile
-swapon /var/swapfile
-echo -e "/var/swapfile\tnone\tswap\tdefaults\t0 0" >> /etc/fstab
 
 # Add unstable branch
 echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list
@@ -48,6 +42,12 @@ apt-get dist-upgrade -y
 apt-get upgrade
 apt-get install -y ${software}
 
+# Create swapfile
+fallocate -l 512M /var/swapfile
+chmod 600 /var/swapfile
+mkswap /var/swapfile
+swapon /var/swapfile
+echo -e "/var/swapfile\tnone\tswap\tdefaults\t0 0" >> /etc/fstab
 
 # Format sdcard
 (echo d; echo n; echo p; echo ""; echo ""; echo ""; echo w) | fdisk /dev/mmcblk0

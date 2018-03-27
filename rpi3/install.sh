@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# git clone https://github.com/bjornborg/bbb
+
+
 systemctl enable ssh
 systemctl start ssh
 
