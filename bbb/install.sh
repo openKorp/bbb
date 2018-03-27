@@ -13,8 +13,8 @@ apt-get upgrade
 apt-get dist-upgrade -y
 
 # Add unstable branch
-echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list
-echo "Package: * Pin: release a=testing Pin-Priority: 100" > /etc/apt/preferences.d/unstable
+# echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list
+# echo "Package: * Pin: release a=testing Pin-Priority: 100" > /etc/apt/preferences.d/unstable
 
 software=" \
 bash-completion \
@@ -27,8 +27,6 @@ nano \
 screen \
 vim \
 wget \
-gcc-8 \
-g++-8 \
 python-pip \
 npm \
 docker-compose \
@@ -36,6 +34,8 @@ libusb-dev \
 nmap \
 libncurses5-dev
 "
+# gcc-8 \
+# g++-8 \
 apt-get update
 apt-get upgrade
 apt-get dist-upgrade -y
