@@ -9,7 +9,7 @@ user=( debian )
 
 
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 apt-get dist-upgrade -y
 
 # Add unstable branch
@@ -36,9 +36,9 @@ libncurses5-dev
 "
 # gcc-8 \
 # g++-8 \
-apt-get update
-apt-get upgrade
-apt-get dist-upgrade -y
+# apt-get update
+# apt-get upgrade
+# apt-get dist-upgrade -y
 
 apt-get install -y ${software}
 
