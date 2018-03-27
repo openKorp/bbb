@@ -9,8 +9,8 @@ user=( debian )
 
 
 apt-get update
-apt-get dist-upgrade -y
 apt-get upgrade
+apt-get dist-upgrade -y
 
 # Add unstable branch
 echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list
@@ -40,8 +40,8 @@ nmap \
 libncurses5-dev
 "
 apt-get update
-apt-get dist-upgrade -y
 apt-get upgrade
+apt-get dist-upgrade -y
 
 apt-get install -y ${software}
 
