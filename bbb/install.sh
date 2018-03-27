@@ -45,6 +45,9 @@ apt-get upgrade
 
 apt-get install -y ${software}
 
+apt-get autoremove
+apt-get autoclean
+
 # Create swapfile
 fallocate -l 512M /var/swapfile
 chmod 600 /var/swapfile

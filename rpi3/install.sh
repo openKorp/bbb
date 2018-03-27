@@ -35,6 +35,8 @@ libncurses5-dev
 apt-get dist-upgrade -y
 apt-get upgrade
 apt-get install -y ${software}
+apt-get autoremove
+apt-get autoclean
 
 # enable pi cam
 raspi-config nonint do_camera 0
