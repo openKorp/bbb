@@ -13,10 +13,10 @@ services:
                 --offsets=${OFFSETS} --maxvals=${MAXVALS} \
                 --angleconversion=${ANGLECONVERSION} --verbose=0"
 
-    viewer:
-        image: chalmersrevere/opendlv-signal-viewer-amd64:v0.0.2
-        network_mode: "host"
-        restart: always
-        ports:
-            - "8080:8080"
-        command: "--cid=${CID}"
+    # viewer:
+    #     image: chalmersrevere/opendlv-signal-viewer-multi:v0.0.2
+    #     network_mode: "host"
+    #     restart: always
+    #     ports:
+    #         - "8080:8080"
+    #     command: "--cid=${CID}"
