@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    device-ps3controller:
+        image: openkorp/opendlv-device-ps3controller-multi:latest
+        devices:
+        - ${JSINPUT}:${JSINPUT}
+        network_mode: "host"
+        command: "/usr/bin/opendlv-device-ps3controller --cid=${CID} --freq=10 \
+                --input=${JSINPUT} --angleconversion=${ANGLECONVERSION} \
+                --verbose=0" 

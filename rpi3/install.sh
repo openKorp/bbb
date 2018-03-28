@@ -34,7 +34,7 @@ libncurses5-dev
 apt-get dist-upgrade -y
 apt-get upgrade -y
 apt-get install -y ${software}
-apt-get autoremove
+apt-get autoremove -y
 apt-get autoclean
 
 # enable pi cam

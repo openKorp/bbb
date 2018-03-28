@@ -11,6 +11,8 @@ user=( debian )
 apt-get update
 apt-get upgrade -y
 apt-get dist-upgrade -y
+apt-get autoremove -y
+apt-get autoclean
 
 
 software=" \
@@ -42,8 +44,6 @@ apt-get install -y ${software}
 # echo "Package: * Pin: release a=testing Pin-Priority: 100" > /etc/apt/preferences.d/unstable
 # apt-get update
 # apt-get install gcc-8 g++-8 
-apt-get autoremove
-apt-get autoclean
 
 # Create swapfile
 fallocate -l 512M /var/swapfile

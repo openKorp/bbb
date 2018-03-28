@@ -10,11 +10,13 @@ services:
             - /sys/:/sys/
         command: "/usr/bin/opendlv-device-kiwi-prugw --cid=${CID} \
                 --names=${NAMES} --types=${TYPES} --channels=${CHANNELS} \
-                --offsets=${OFFSETS} --maxvals=${MAXVALS} --verbose=0"
+                --offsets=${OFFSETS} --maxvals=${MAXVALS} \
+                --angleconversion=${ANGLECONVERSION} --verbose=0"
 
-    # device-ps3controller:
-    #      image: openkorp/opendlv-device-ps3controller-multi:latest
-    #      devices:
-    #        - ${INPUT}:${INPUT}
-    #      network_mode: "host"
-    #      command: "/usr/bin/opendlv-device-ps3controller --cid=${CID} --freq=10 --input=${INPUT} --verbose=0" 
+    viewer:
+        image: chalmersrevere/opendlv-signal-viewer-amd64:v0.0.2
+        network_mode: "host"
+        restart: always
+        ports:
+            - "8080:8080"
+        command: "--cid=${CID}"
