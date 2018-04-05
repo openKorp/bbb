@@ -56,6 +56,10 @@ echo -e 'interface eth1\nstatic ip_address=10.42.42.1/24' >> /etc/dhcpcd.conf
 echo -e 'auto lo\niface lo inet loopback\nallow-hotplug eth1\nup iptables-restore < /etc/iptables.save' >> /etc/network/interfaces
 sed -i -e 's/INTERFACESv4=""/INTERFACESv4="eth1"/g' /etc/default/isc-dhcp-server
 
+cp /run/systemd/generator.late/isc-dhcp-server.service /etc/systemd/system
+sed -i -e 's/Restart=no/Restart=on-failure\nRestartSec=5/g' /etc/systemd/system/isc-dhcp-server.service
+echo -e '\n[Install]\nWantedBy=multi-user.target' >> /etc/systemd/system/isc-dhcp-server.service
+
 # iptables
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 echo 1 > /proc/sys/net/ipv4/ip_forward
