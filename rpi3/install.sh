@@ -25,7 +25,8 @@ libusb-dev \
 isc-dhcp-server \
 iptables-persistent \
 nmap \
-libncurses5-dev
+libncurses5-dev \
+rpi-update
 "
 # npm \
 
@@ -36,6 +37,8 @@ apt-get upgrade -y
 apt-get install -y ${software}
 apt-get autoremove -y
 apt-get autoclean
+
+rpi-update
 
 # enable pi cam
 raspi-config nonint do_camera 0

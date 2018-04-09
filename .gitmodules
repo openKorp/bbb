@@ -1,0 +1,3 @@
+[submodule "opendlv-ui-default"]
+	path = opendlv-ui-default
+	url = git@github.com:chalmers-revere/opendlv-ui-default.git

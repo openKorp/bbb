@@ -3,8 +3,6 @@
 # git clone https://github.com/bjornborg/bbb
 
 
-lan_dev=wlan0
-dhcp_dev=( ${lan_dev} )
 user=( debian )
 
 
@@ -94,8 +92,11 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o usb1 -j MASQUERADE
 iptables -A FORWARD -i usb1 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i wlan0 -o usb1 -j ACCEPT
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 iptables-save > /etc/iptables/rules.v4
-echo 'ip route add 225.0.0.0/24 dev usb0' >> /opt/scripts/boot/autoconfigure_usb0.sh
+echo 'ip route add 225.0.0.0/24 dev wlan0' >> /opt/scripts/boot/autoconfigure_usb0.sh
 
 #
 # git clone https://github.com/bjornborg/bbb.git
