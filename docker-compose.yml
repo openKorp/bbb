@@ -49,11 +49,11 @@ services:
         command: "/usr/bin/opendlv-device-adc-bbblue --cid=${CID} --freq=10 --channel=3 --id=1"
 
     viewer:
-        image: chalmersrevere/opendlv-ui-server-armhf:0.0.4
+        image: chalmersrevere/opendlv-ui-server-armhf:v0.0.4
         network_mode: "host"
         restart: always
         volumes:
             - /bbb/opendlv-ui-default/http/:/http/
         ports:
             - "8080:8080"
-        command: "--cid=${CID} --port=8080 --http-root=./http"
+        command: "/usr/bin/opendlv-ui-server --cid=${CID} --port=8080 --http-root=/http"
