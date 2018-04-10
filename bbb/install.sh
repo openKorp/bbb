@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# git clone https://github.com/bjornborg/bbb
+# git clone --recurse-submodules https://github.com/bjornborg/bbb
 
 
 user=( debian )
