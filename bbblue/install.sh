@@ -1,16 +1,10 @@
 #!/bin/bash
 
-# git clone --recurse-submodules https://github.com/bjornborg/bbb
-
 
 user=( debian )
 
 
 apt-get update
-apt-get upgrade -y
-apt-get dist-upgrade -y
-apt-get autoremove -y
-apt-get autoclean
 
 
 software=" \
@@ -35,8 +29,15 @@ libncurses5-dev
 # apt-get update
 # apt-get upgrade
 # apt-get dist-upgrade -y
-
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
+echo librobotcontrol librobotcontrol/q_runonboot select none | debconf-set-selections
 apt-get install -y ${software}
+apt-get remove -y bone101 bonescript nodejs bb-node-red-installer apache2 c9-core-installer
+apt-get upgrade -y
+apt-get dist-upgrade -y
+apt-get autoremove -y
+apt-get autoclean
 # Add unstable branch
 # echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list
 # echo "Package: * Pin: release a=testing Pin-Priority: 100" > /etc/apt/preferences.d/unstable
